@@ -1,6 +1,6 @@
 import { Message } from 'node-nats-streaming';
 import { Listener, OrderCancelledEvent, Subjects } from '@jpa-tickets/common';
-import { queueGroupName } from './queueGroupName';
+import { queueGroupName } from './queue-group-name';
 import { Ticket } from '../../models/ticket';
 import { TicketUpdatedPublisher } from '../publishers/ticket-updated-publisher';
 

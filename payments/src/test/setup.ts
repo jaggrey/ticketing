@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 import request from 'supertest';
 import { app } from '../app';
 import jwt from 'jsonwebtoken';
-import { keys } from '../../../secret/keys.js';
+// import { keys } from '../../../secret/keys.js';
 
 // Use this to let TS node this is a global function signup() which returns a Promise and is resolved with an array of strings
 declare global {
@@ -17,7 +17,8 @@ declare global {
 // Have jest use fake nats-server
 jest.mock('../nats-wrapper');
 
-process.env.STRIPE_KEY = keys.STRIPE_SECRET_KEY;
+process.env.STRIPE_KEY =
+  'sk_test_51GwoZQHoTeqrXIOUylBlw55EVxXmiomGZCkJ24A8WWU4DZUvvxB7N6uYVt4Wj5DK9L8ZhBZfV73gwvGMPjptRy5C00JMU2OYIN';
 
 // A hook function that runs before all the tests starts to be executed.
 let mongo: any;

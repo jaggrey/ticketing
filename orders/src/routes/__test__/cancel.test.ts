@@ -33,7 +33,7 @@ it('marks an order as cancelled', async () => {
   // Expectation to make sure the thing is cancelled
   const cancelledOrder = await Order.findById(order.id);
 
-  expect(cancelledOrder!.status).toEqual(OrderStatus.Canceled);
+  expect(cancelledOrder!.status).toEqual(OrderStatus.Cancelled);
 });
 
 it('emits an order cancelled event', async () => {
