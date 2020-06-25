@@ -14,7 +14,6 @@ app.use(json());
 app.use(
   cookieSession({
     signed: false, // don't encrypt the cookie
-    // secure: process.env.NODE_ENV !== 'test' // jest set NODE_ENV to false to pass test, other than it defaults to 'true' that means cookies will be shared only with https connection
     secure: false
   })
 );

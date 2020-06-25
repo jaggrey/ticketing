@@ -2,7 +2,6 @@ import { MongoMemoryServer } from 'mongodb-memory-server';
 import mongoose from 'mongoose';
 import jwt from 'jsonwebtoken';
 
-// Use this to let TS node this is a global function signup() which returns a Promise and is resolved with an array of strings
 declare global {
   namespace NodeJS {
     interface Global {
@@ -14,8 +13,8 @@ declare global {
 // Have jest use fake nats-server
 jest.mock('../nats-wrapper');
 
-// A hook function that runs before all the tests starts to be executed.
 let mongo: any;
+
 beforeAll(async () => {
   // Resets the fake natsWrapper after every test
   jest.clearAllMocks();
@@ -31,7 +30,6 @@ beforeAll(async () => {
   });
 });
 
-// Runs before each test
 beforeEach(async () => {
   jest.clearAllMocks();
 
@@ -49,7 +47,6 @@ afterAll(async () => {
   await mongoose.connection.close();
 });
 
-// Globally scoped function only available in the testing environment
 global.getCookie = () => {
   // Build a JWT payload. { id, email }
   const payload = {

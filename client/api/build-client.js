@@ -11,7 +11,7 @@ export default ({ req }) => {
       headers: req.headers
     });
   } else {
-    // We must be on the browser
+    // We are on the browser
     // Requestes can be made with a base url of ''
     return axios.create({
       baseURL: '/'

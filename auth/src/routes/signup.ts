@@ -9,7 +9,6 @@ const router = express.Router();
 
 router.post(
   '/api/users/signup',
-  // Middleware that validates reqbody
   [
     body('email').isEmail().withMessage('Email must be valid'),
     body('password')
@@ -37,7 +36,7 @@ router.post(
         id: user.id,
         email: user.email
       },
-      process.env.JWT_KEY! // the exclamation is for us to let TS know we did indeed define the JWT_KEY variable, it is defined in the docker secret object
+      process.env.JWT_KEY!
     );
 
     // Store JWT on session (cookie) object

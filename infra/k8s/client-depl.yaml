@@ -16,7 +16,6 @@ spec:
         - name: client
           image: jaggrey07/client
 ---
-# default Service is a Cluster IP Service - allows request inside the cluster to access this pod
 apiVersion: v1
 kind: Service
 metadata:

@@ -9,7 +9,6 @@ const scryptAsync = promisify(scrypt);
 
 export class PasswordHandler {
   // Signup flow
-  // static means we don't need to create an instance of this class to access this method.
   static async toHash(password: string) {
     // randomBytes will generate a random string which will be used as a Salt
     const salt = randomBytes(8).toString('hex');
