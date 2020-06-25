@@ -6,8 +6,7 @@ export default ({ req }) => {
     // Requests should be made from the pod to ingress service which is of the format
     // http://SERVICENAME.NAMESPACE.svc.cluster.local/YOURROUTE
     return axios.create({
-      baseURL: 'http://codewithgrey.com',
-      // 'http://ingress-nginx-controller.ingress-nginx.svc.cluster.local',
+      baseURL: 'http://www.codewithgrey.com/',
       headers: req.headers
     });
   } else {
