@@ -19,7 +19,6 @@ interface UserDoc extends mongoose.Document {
   password: string;
 }
 
-// schema tells Mongoose all the properties a user is going to have
 const userSchema = new mongoose.Schema(
   {
     email: {
@@ -44,13 +43,6 @@ const userSchema = new mongoose.Schema(
   }
 );
 
-// Middleware function implemented in mongoose use the 'save' hook. Executes when we try to save
-// something the DB.
-// Moongoose like express uses the old way doing things doesnt out of the box support async await
-// syntax. To handle asynchronous code we need to pass done and invoke it when we done with the
-// implementation.
-// Using function keyword is to bind this to the context of the particular document in Mongoose
-// and not this implementation or object.
 userSchema.pre('save', async function (done) {
   // Check to see if password is modified.
   if (this.isModified('password')) {
@@ -60,7 +52,6 @@ userSchema.pre('save', async function (done) {
   done();
 });
 
-// statics allow us to get a custom function built into a model, in this case 'build'
 userSchema.statics.build = (attrs: UserAttrs) => {
   return new User(attrs);
 };

@@ -24,7 +24,6 @@ spec:
                   name: jwt-secret
                   key: JWT_KEY
 ---
-# default Service is a Cluster IP Service
 apiVersion: v1
 kind: Service
 metadata:

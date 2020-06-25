@@ -4,7 +4,6 @@ import request from 'supertest';
 import { app } from '../app';
 import jwt from 'jsonwebtoken';
 
-// Use this to let TS node this is a global function signup() which returns a Promise and is resolved with an array of strings
 declare global {
   namespace NodeJS {
     interface Global {
@@ -33,7 +32,6 @@ beforeAll(async () => {
   });
 });
 
-// Runs before each test
 beforeEach(async () => {
   // Get all the collections that exist in the db
   const collections = await mongoose.connection.db.collections();
@@ -49,7 +47,6 @@ afterAll(async () => {
   await mongoose.connection.close();
 });
 
-// Globally scoped function only available in the testing environment
 global.getCookie = () => {
   // Build a JWT payload. { id, email }
   const payload = {

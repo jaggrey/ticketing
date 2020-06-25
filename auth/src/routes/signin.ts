@@ -42,7 +42,7 @@ router.post(
         id: existingUser.id,
         email: existingUser.email
       },
-      process.env.JWT_KEY! // the exclamation is for us to let TS know we did indeed define the JWT_KEY variable, it is defined in the docker secret object
+      process.env.JWT_KEY!
     );
 
     // Store JWT on session (cookie) object
